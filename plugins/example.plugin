@@ -1,0 +1,17 @@
+` Running a function from a prompt
+prompt, (Eat, Sleep, Attack, Defend) > (eat, sleep, attack, defend): Gucci
+
+` Running a function from the run command
+run > hello
+
+` Example function
+func eat {
+    text: Hello, you are eating!
+    text, green: This is some green text!
+}
+
+func hello {
+    text: Hello World!
+}
+
+` This is a comment!
