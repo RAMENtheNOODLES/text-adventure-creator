@@ -11,7 +11,7 @@ class Plugins:
     def __init__(self, mColors, file):
         self.colors = mColors
         self.store = []
-        self.file = file
+        self.file = str(file)
 
     def run_plugin(self, linenum=0):
         f = open(f"{curdir}/plugins/{self.file}", "r")
@@ -32,13 +32,18 @@ class Plugins:
         file = self.file
         i = line
         if i.__contains__("`"):
-                return 'comment'
+            return 'comment'
+        if i.__contains__("func"):
+            return 'function'
+        if i.__contains__("\t\t"):
+            return 'inside of function'
         if re.match("text, (\w*): ", i):
+            print(i)
             color = self.get_colors(i.split(", ")[1].split(":")[0])
             # print(i.split(", ")[1].replace(":", ""))
             print(color + i.split(": ")[1])
             return 'text-color'
-        if i.__contains__("text"):
+        if i.__contains__("text: "):
             print(i)
             print(i.split("text: ")[1])
             return 'text'
@@ -53,17 +58,24 @@ class Plugins:
 
             while True:
                 choice = input(">")
+                
+                print(len(lines))
 
                 if choice.lower() in choices.lower().split(", "):
                     for k in range(len(lines)):
-                        if lines[k] == f"func {choice.lower()}":
+                        if lines[k] == f"func {choice.lower()} " + "{":
+                            pluginstr = ""
+                            for j in lines:
+                                pluginstr += j + "\n"
+                            
                             print(lines[k])
-                            function = file.split("func " + choice + " {")[1].split("}")[0]
+                            function = pluginstr.split("func " + choice + " {")[1].split("}")[0]
                             print(function)
                             
-                            for j in function.split("\n").replace("\t", ""):
+                            for j in function.replace("    ", "").split("\n"):
                                 print(f"J: {j}")
-                                self.store.append(j)
+                                if j != "\n":
+                                    self.store.append(j)
                     return
 
                 print("That is not a valid option...")
@@ -84,7 +96,7 @@ class Plugins:
             read_story(chapter, i.split("goto: ")[1] + ".txt")
             return 'goto'
         
-    def get_colors(color_string):
+    def get_colors(self, color_string):
         if color_string in colors:
             return self.colors[color_string]
         return self.colors["white"]
