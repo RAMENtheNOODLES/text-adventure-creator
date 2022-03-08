@@ -9,10 +9,14 @@ curdir = os.getcwd()
 
 
 class Plugins:
-    def __init__(self, mColors, file):
+    def __init__(self, mColors, file="example.plugin"):
         self.colors = mColors
         self.store = []
         self.file = str(file)
+
+    def switch_file(self, file):
+        self.file = file
+        return
 
     def run_plugin(self, linenum=0):
         f = open(f"{curdir}/plugins/{self.file}", "r")
@@ -99,7 +103,7 @@ class Plugins:
                 # print(function)
 
                 for j in function.replace("    ", "").split("\n"):
-                    print(f"J: {j}")
+                    # print(f"J: {j}")
                     if j != "\n":
                         self.store.append(j)
         return
@@ -110,6 +114,7 @@ class Plugins:
         return self.colors["white"]
 
 
+"""
 p = Plugins(
     {
         "black": Fore.BLACK,
@@ -124,3 +129,4 @@ p = Plugins(
     "example.plugin",
 )
 p.run_plugin()
+"""
