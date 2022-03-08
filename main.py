@@ -24,7 +24,7 @@ colors = {
 p = plugins.Plugins(colors)
 
 chapters = []
-c = open("story_chapters.tac", "r")
+c = open("story_chapters.txt", "r")
 for i in c:
     print(i)
     chapters.append(i)
