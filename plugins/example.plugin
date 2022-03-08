@@ -8,10 +8,13 @@ run > hello
 func eat {
     text: Hello, you are eating!
     text, green: This is some green text!
+    text: Another test
 }
 
 func hello {
     text: Hello World!
+    text, red: This is to show you that colors work!
+    wait, 2: And that you can wait!
 }
 
 ` This is a comment!
