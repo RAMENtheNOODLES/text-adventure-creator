@@ -24,13 +24,13 @@ colors = {
 p = plugins.Plugins(colors)
 
 chapters = []
-c = open("story_chapters.txt", "r")
+c = open("story_chapters.tac", "r")
 for i in c:
     print(i)
     chapters.append(i)
 
 
-def read_story(chapter, option="story.txt"):
+def read_story(chapter, option="story.tac"):
     f = open(f"{curdir}/{chapter}/{option}", "r")
 
     lines = f.read().split("\n")
@@ -64,7 +64,7 @@ def read_story(chapter, option="story.txt"):
                 if choice in choices.split(", "):
                     read_story(
                         chapter,
-                        destinations[choices.split(", ").index(choice)] + ".txt",
+                        destinations[choices.split(", ").index(choice)] + ".tac",
                     )
                     return
 
@@ -76,12 +76,12 @@ def read_story(chapter, option="story.txt"):
             time.sleep(int(i.split("wait, ")[1].split(":")[0]))
             print(i.split(": ")[1])
         if i.__contains__("goto > "):
-            d_chapter = i.split("goto > ", "")[1].split(":")[0] + ".txt"
-            d = i.split(": ")[1] + ".txt"
+            d_chapter = i.split("goto > ", "")[1].split(":")[0] + ".tac"
+            d = i.split(": ")[1] + ".tac"
             read_story(d_chapter, d)
             return
         if i.__contains__("goto: "):
-            read_story(chapter, i.split("goto: ")[1] + ".txt")
+            read_story(chapter, i.split("goto: ")[1] + ".tac")
             return
         if i.__contains__("plugin > "):
             p.switch_file(i.split("plugin > ")[1] + ".plugin")

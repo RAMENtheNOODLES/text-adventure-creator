@@ -83,12 +83,12 @@ class Plugins:
             print(i.split(": ")[1])
             return "wait"
         if i.__contains__("goto > "):
-            d_chapter = i.split("goto > ", "")[1].split(":")[0] + ".txt"
-            d = i.split(": ")[1] + ".txt"
+            d_chapter = i.split("goto > ", "")[1].split(":")[0] + ".tac"
+            d = i.split(": ")[1] + ".tac"
             read_story(d_chapter, d)
             return "goto-chapter"
         if i.__contains__("goto: "):
-            read_story(chapter, i.split("goto: ")[1] + ".txt")
+            read_story(chapter, i.split("goto: ")[1] + ".tac")
             return "goto"
 
     def get_function(self, lines: list, func_name: str):
