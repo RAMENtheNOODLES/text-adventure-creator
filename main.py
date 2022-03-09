@@ -5,6 +5,7 @@ import time
 import plugins
 
 print("Welcome to text adventure!\nWIP")
+print("T🖈C\nv0.0.1")
 
 init(autoreset=True)
 
