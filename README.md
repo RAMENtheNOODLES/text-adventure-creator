@@ -5,7 +5,9 @@
 
 ---
 
-Hello! Text Adventure Creator is a tool that allows you to create a text-based adventure game!
+Hello! 
+
+Text Adventure Creator is a tool that allows you to create a text-based adventure game!
 
 This project is made in python, and it uses it's own custom language to create text-based adventure games. For documentation on how to use it, visit the [wiki](https://github.com/RAMENtheNOODLES/text-adventure-creator/wiki). TAC will continue to be updated whenever I have time. 
 
