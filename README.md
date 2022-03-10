@@ -2,6 +2,7 @@
 <img src="https://user-images.githubusercontent.com/58859646/157491687-831ec4cf-84a9-4809-b085-041b0103cbd7.jpg" width=128px height=128px>
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/RAMENtheNOODLES/text-adventure-creator/HEAD)
+[![Pylint](https://github.com/RAMENtheNOODLES/text-adventure-creator/actions/workflows/pylint.yml/badge.svg)](https://github.com/RAMENtheNOODLES/text-adventure-creator/actions/workflows/pylint.yml)
 
 ---
 
