@@ -3,6 +3,9 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/RAMENtheNOODLES/text-adventure-creator/HEAD)
 [![Pylint](https://github.com/RAMENtheNOODLES/text-adventure-creator/actions/workflows/pylint.yml/badge.svg)](https://github.com/RAMENtheNOODLES/text-adventure-creator/actions/workflows/pylint.yml)
+![Lines of code](https://img.shields.io/tokei/lines/github/RAMENtheNOODLES/text-adventure-creator)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/RAMENtheNOODLES/text-adventure-creator?color=r&sort=semver)
+![GitHub](https://img.shields.io/github/license/RAMENtheNOODLES/text-adventure-creator?color=purple)
 
 ---
 
