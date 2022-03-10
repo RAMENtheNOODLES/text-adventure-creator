@@ -1,3 +1,4 @@
 .prettierrc
 __pycache__/*
 .vscode/*
+.github/*
