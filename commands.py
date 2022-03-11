@@ -10,7 +10,7 @@ class Commands:
     def __init__(self):
         pass
     
-    def find_command(self, line, lines, mode="story"):
+    def find_command(self, line, lines, mode="story", chapter=None, option="story.tac"):
         file = self.file
         i = line
         if i.__contains__("`"):
@@ -48,10 +48,21 @@ class Commands:
                 choice = input(">")
 
                 # print(len(lines))
-
-                if choice.lower() in choices.lower().split(", "):
-                    self.get_function(lines, choice.lower())
-                    return
+                
+                if mode == "plugin":
+                    if choice.lower() in choices.lower().split(", "):
+                        self.get_function(lines, choice.lower())
+                        return
+                elif mode == "story":
+                    if choice in choices.split(", "):
+                        self.find_command(
+                            line,
+                            lines,
+                            "story",
+                            chapter,
+                            destinations[choices.split(", ").index(choice)] + ".tac",
+                        )
+                        return
 
                 print("That is not a valid option...")
                 continue
