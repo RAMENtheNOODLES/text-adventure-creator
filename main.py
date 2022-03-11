@@ -4,9 +4,6 @@ import re
 import time
 import plugins
 
-print("Welcome to text adventure!\nWIP")
-print("T🖈C\nv0.0.1")
-
 init(autoreset=True)
 
 curdir = os.getcwd()
@@ -21,6 +18,10 @@ colors = {
     "cyan": Fore.CYAN,
     "white": Fore.WHITE,
 }
+
+print("Welcome to text adventure!\nWIP")
+print(Fore.GREEN + "┌──┬──┬─┐\n└┐┌┤┌┐│┌┘\n│││├┤│└┐\n└┘└┘└┴─┘")
+print("T🖈C\nv0.0.1")
 
 p = plugins.Plugins(colors)
 
