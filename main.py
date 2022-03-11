@@ -25,7 +25,6 @@ print(Fore.GREEN + "┌──┬──┬─┐\n└┐┌┤┌┐│┌┘\n �
 print("T🖈C\nv0.0.1")
 
 p = plugins.Plugins(colors)
-comm = commands.Commands()
 
 chapters = []
 c = open("story_chapters.txt", "r")
