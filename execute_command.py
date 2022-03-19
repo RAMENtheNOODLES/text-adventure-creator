@@ -1,3 +1,4 @@
+from array import array
 from colorama import init, Fore, Back, Style, Cursor
 import os
 import re
@@ -12,7 +13,7 @@ cc = custom_commands.Custom_Commands()
 
 
 class Execute_Command:
-    def __init__(self):
+    def __init__(self, ignore: array = []):
         self.colors = {
             "black": Fore.BLACK,
             "red": Fore.RED,
@@ -24,7 +25,12 @@ class Execute_Command:
             "white": Fore.WHITE,
         }
 
+        self.ignore = ignore
+
     def FAE(self, line) -> dict:
+        if line in self.ignore:
+            return "ignored"
+
         if line.__contains__("`"):
             return "comment"
         if line == "\n":
