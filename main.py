@@ -1,7 +1,10 @@
+from nis import match
 from colorama import init, Fore, Back, Style, Cursor
 import os
 import re
 import time
+import custom_commands
+import execute_command
 import plugins
 
 init(autoreset=True)
@@ -24,6 +27,8 @@ print(Fore.GREEN + "┌──┬──┬─┐\n└┐┌┤┌┐│┌┘\n �
 print("T🖈C\nv0.0.1")
 
 p = plugins.Plugins(colors)
+cc = custom_commands.Custom_Commands()
+ec = execute_command.Execute_Command()
 
 chapters = []
 c = open("story_chapters.txt", "r")
@@ -38,6 +43,33 @@ def read_story(chapter, option="story.tac"):
     lines = f.read().split("\n")
 
     for i in lines:
+
+        result = ec.FAE(i)
+
+        if result == "stop":
+            return
+
+        # Need to check for stop, plugin, run_plugin, read_story,
+
+        if not isinstance(result, str):
+            for k in result.keys():
+                if k == "plugin":
+                    p.switch_file(result[k])
+                if k == "run_plugin":
+                    p.run_plugin(result[k] if result[k] != "" else 0)
+                if k == "read_story":
+                    goto_chapter = chapter
+
+                    if result[k][0] == "cur":
+                        goto_chapter = chapter
+
+                    read_story(
+                        goto_chapter,
+                        result[k][1],
+                    )
+
+        continue
+
         # print(i)
 
         if i.__contains__("`"):
@@ -97,6 +129,12 @@ def read_story(chapter, option="story.tac"):
             return
         if i.__contains__("stop"):
             return
+        if i.__contains__("import"):
+            cc.import_command(i.split("> ")[1])
+
+        for k in cc.imported.keys():
+            if i.__contains__(k):
+                cc.execute_command(i.split(" >")[0], i.split("> ")[1])
 
 
 def get_colors(color_string: str) -> str:

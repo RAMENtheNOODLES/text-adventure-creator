@@ -1,3 +1,6 @@
-usage > example, [param1], [param2]: [text]
-text, [param1]: [param2], [text]
-text, green: This is a custom command
+name: Example
+`desc: Optional
+params > color, text
+`usage > example, [param1], [param2]: [text]
+
+disp > text, $color: $text
