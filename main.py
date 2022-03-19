@@ -3,7 +3,6 @@ import os
 import re
 import time
 import plugins
-import commands
 
 init(autoreset=True)
 
@@ -89,9 +88,18 @@ def read_story(chapter, option="story.tac"):
         if i.__contains__("plugin > "):
             p.switch_file(i.split("plugin > ")[1] + ".plugin")
             p.run_plugin()
+        if re.match("stop, (\w*): (\w*)", i):
+            color = get_colors(i.split(", ")[1].split(":")[0])
+            print(color + i.split(": ")[1])
+            return
+        if re.match("stop: (\w*)", i):
+            print(i.split(": ")[1])
+            return
+        if i.__contains__("stop"):
+            return
 
 
-def get_colors(color_string):
+def get_colors(color_string: str) -> str:
     if color_string in colors:
         return colors[color_string]
     return colors["white"]

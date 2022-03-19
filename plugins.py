@@ -90,6 +90,15 @@ class Plugins:
         if i.__contains__("goto: "):
             read_story(chapter, i.split("goto: ")[1] + ".tac")
             return "goto"
+        if re.match("stop, (\w*): (\w*)", i):
+            color = self.get_colors(i.split(", ")[1].split(":")[0])
+            print(color + i.split(": ")[1])
+            return
+        if re.match("stop: (\w*)", i):
+            print(i.split(": ")[1])
+            return
+        if i.__contains__("stop"):
+            return
 
     def get_function(self, lines: list, func_name: str):
         for k in range(len(lines)):
@@ -108,7 +117,7 @@ class Plugins:
                         self.store.append(j)
         return
 
-    def get_colors(self, color_string):
+    def get_colors(self, color_string: str) -> str:
         if color_string in self.colors:
             return self.colors[color_string]
         return self.colors["white"]
