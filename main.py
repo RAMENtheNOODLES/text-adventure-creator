@@ -1,4 +1,3 @@
-from nis import match
 from colorama import init, Fore, Back, Style, Cursor
 import os
 import re
@@ -22,9 +21,13 @@ colors = {
     "white": Fore.WHITE,
 }
 
-print("Welcome to text adventure!\nWIP")
+print("Welcome to text adventure!")
+print(
+    Fore.BLUE
+    + "Check out the repo:\nhttps://github.com/RAMENtheNOODLES/text-adventure-creator"
+)
 print(Fore.GREEN + "┌──┬──┬─┐\n└┐┌┤┌┐│┌┘\n │││├┤│└┐\n └┘└┘└┴─┘")
-print("T🖈C\nv0.0.1")
+print("T🖈C\nv0.0.2")
 
 p = plugins.Plugins(colors)
 cc = custom_commands.Custom_Commands()
